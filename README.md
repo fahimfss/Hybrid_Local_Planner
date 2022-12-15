@@ -35,7 +35,7 @@ After that, TurtleBot3 Gazebo Simulator needs to be installed.
   
 Before installing Gazebo, copy the [model_editor_models](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/model_editor_models) **folder** with it's contents to the **Home** directory (~/model_editor_models/)  
 
-Gazebo works best with a Nvidia GPU and I used a RTX 3070 in my setup. Please make sure the gpu drivers are up to date before installing Gazebo. The instructions can be found here:
+Gazebo works best with an Nvidia GPU, and I used an RTX 3070 in my setup. Please make sure the GPU drivers are up to date before installing Gazebo. The instructions for installing Gazebo can be found here:
 https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation  
 **Note: Restart the terminal before installing Gazebo**
 
@@ -45,26 +45,26 @@ $ cd ~/catkin_ws/src/
 $ git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 $ cd ~/catkin_ws && catkin_make
 ```
-Restart the terminal and verify Gazebo is installed correctly using the following comand:
+Restart the terminal and verify Gazebo is installed correctly using the following command:
 ```
 $ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
-Use `ctrl + c` in the terminal to close Gazebo simulator.  
+Use `ctrl + c` in the terminal to close the Gazebo simulator.  
   
-After that, multiple files are required to be placed in correct folders to run the experiments correctly.
+After that, multiple files are required to be placed in the correct folders to run the experiments correctly.
 * Copy the **contents** of the [Maps](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Maps) **folder** to the **Home** directory (~/map_dynamic_obs.pgm, ~/map_dynamic_obs.yaml, ~/map_static_obs.pgm, ~/map_static_obs.yaml)
 * Copy the two **contents** of the [Worlds](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Worlds) **folder** inside the `~/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds` directory 
 * Copy the two **contents** of the [Launch](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Launch) **folder** inside the `~/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch` directory 
 * Lastly, copy the [navigation](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/navigation) folder to the `~/catkin_ws/src` directory (~/catkin_ws/src/navigation)
 
-Use the command `cd ~/catkin_ws && catkin_make` to compile the code.
+Use the command `$ cd ~/catkin_ws && catkin_make` to compile the code.
 
 ## Running the Experiments
-To run the experiments, first we need to set the Local Planner in the [move_base.launch](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/move_base.launch) file. In my pc, the move_base.launch file is located at `/opt/ros/noetic/share/turtlebot3_navigation/launch/move_base.launch`.  
+To run the experiments, first, we need to set the Local Planner in the [move_base.launch](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/move_base.launch) file. In my pc, the move_base.launch file is located at `/opt/ros/noetic/share/turtlebot3_navigation/launch/move_base.launch`.  
   
 To edit the file, use the following command: `$ sudo nano /opt/ros/noetic/share/turtlebot3_navigation/launch/move_base.launch`  
   
-By default the DWA planner is used.  
+By default, the DWA local planner is used.  
 To change to Hybrid Local Planner, use: `<param name="base_local_planner" value="hybrid_local_planner/HybridPlannerROS"/>` inside `<node>`  
 To change to TEB Local Planner, use: `<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>` inside `<node>`. (TEB local planner can be installed using `$ sudo apt-get install ros-noetic-teb-local-planner`)   
   
@@ -74,7 +74,7 @@ Please comment out other local planners which are not intended for use. You can 
 In a new terminal, run the following command to run Gazebo static obstacle environment:  
 `$ roslaunch turtlebot3_gazebo turtlebot3_rec_static_obs.launch`
 
-In another terminal, run the following command to run RViz:  
+After the Gazebo simulator fully starts, in another terminal, run the following command to run RViz:  
 `$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_static_obs.yaml`  
   
 In RViz, I unselect the **Amcl Particles** and **Local Map > Costmap** for better observability. To see the Hybrid Local Planner's selected path, 
@@ -91,15 +91,15 @@ The robot should start moving towards the goal.
 
 
 ### Running the Dynamic Obstacle Experiment
-Running the dynamic obstacle experiment is slightly tricky, as you need to keep track of time. The obstacle starts to move after 20 seconds at the speed of 0.5 m/s. Both of these values can be changed in the `~/catkin_ws/src/navigation/MoveObject/src/model_push.cc` file (line 35, 36). Please use the command `cd ~/catkin_ws && catkin_make` to compile the code if the values are chagned in the `model_push.cc` file.
+Running the dynamic obstacle experiment is slightly tricky, as you need to keep track of time. The obstacle starts to move after 20 seconds at the speed of 0.5 m/s. Both of these values can be changed in the `~/catkin_ws/src/navigation/MoveObject/src/model_push.cc` file (lines 35, 36). Please use the command `cd ~/catkin_ws && catkin_make` to compile the code if the values are changed in the `model_push.cc` file.
 
-In a new terminal, run the following command to run Gazebo dynamic obstacle environment (After the Gazebo simulator starts, keep track of time to decide when to set the goal command):  
+In a new terminal, run the following command to run the Gazebo dynamic obstacle environment (After the Gazebo simulator starts, keep track of time to decide when to set the goal command):  
 `$ roslaunch turtlebot3_gazebo turtlebot3_rec_dynamic_obs.launch`
 
-In another terminal, run the following command to run RViz:  
+After the Gazebo simulator fully starts, in another terminal, run the following command to run RViz:  
 `$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_dynamic_obs.yaml`  
   
-Two seconds before the obstacle starts moving (in this case, at 18 second mark after launching Gazebo simulator), set the goal using the `2D Nav Goal` button. 
+Two seconds before the obstacle starts moving (in this case, at 18-second mark after launching the Gazebo simulator), set the goal using the `2D Nav Goal` button. 
 
 
 
