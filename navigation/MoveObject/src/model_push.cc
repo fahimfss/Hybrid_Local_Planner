@@ -32,7 +32,7 @@ class ModelPush : public ModelPlugin {
         // Apply a small linear velocity to the model.
         frame_no += 1;
         double x_vel = 0;
-        if (frame_no > 10000)  // The object will start to move after 10 seconds. 
+        if (frame_no > 20000)  // The object will start to move after 20 seconds. 
             x_vel = -0.5;      // Velocity is of the object is set to 0.5 m/s
         this->model->SetLinearVel(ignition::math::Vector3d(x_vel, 0, 0));
     }
