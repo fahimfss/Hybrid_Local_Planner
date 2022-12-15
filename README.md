@@ -85,8 +85,16 @@ The robot should start moving towards the goal.
 
 
 
+### Running the Dynamic Obstacle Experiment
+Running the dynamic obstacle experiment is slightly tricky, as you need to keep track of time. The obstacle starts to move after 20 seconds at the speed of 0.5 m/s. Both of these values can be changed in the `~/catkin_ws/src/navigation/MoveObject/src/model_push.cc` file (line 35, 36). Please use the command `cd ~/catkin_ws && catkin_make` to compile the code if the values are chagned in the `model_push.cc` file.
 
+In a new terminal, run the following command to run Gazebo dynamic obstacle environment (After the Gazebo simulator starts, keep track of time to decide when to set the goal command):  
+`$ roslaunch turtlebot3_gazebo turtlebot3_rec_dynamic_obs.launch`
 
+In another terminal, run the following command to run RViz:  
+`$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_dynamic_obs.yaml`  
+  
+Two seconds before the obstacle starts moving (in this case, at 18 second mark after launching Gazebo simulator), set the goal using the `2D Nav Goal` button. 
 
 
 
