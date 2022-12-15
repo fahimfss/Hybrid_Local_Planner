@@ -27,7 +27,7 @@ $ sudo apt install ros-noetic-turtlebot3-msgs
 $ sudo apt install ros-noetic-turtlebot3
 ```
 
-Next, add the line `export TURTLEBOT3_MODEL=burger` to `~/.bashrc`.
+Next, add the line `export TURTLEBOT3_MODEL=burger` at the end of the `~/.bashrc` file.
 
 After that, TurtleBot3 Gazebo Simulator needs to be installed. Gazebo works best with a Nvidia GPU and I used a RTX 3070 in my setup. Please make sure the gpu drivers are up to date before installing Gazebo. The instructions can be found here:
 https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation  
