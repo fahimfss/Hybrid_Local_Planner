@@ -2,6 +2,8 @@
 This is an implementation of ROS Local Planner using the Dijkstra's algorithm and the Hybrid A star algorithm
 
 ## Installation
+Before starting, please make sure that the GPU drivers are up to date. It is recommended to use Nvidia GPUs with Gazebo. 
+
 The first thing to do is to setup the TurtleBot3 ROS packages. The installation guide can be found here: https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/#pc-setup
 
 There are **different ROS versions** for **different Ubuntu versions**. In my setup, I used Ubuntu 20.04.5 LTS and ROS1, so my selected ROS package was **noetic**. 
@@ -29,7 +31,11 @@ $ sudo apt install ros-noetic-turtlebot3
 
 Next, add the line `export TURTLEBOT3_MODEL=burger` at the end of the `~/.bashrc` file.
 
-After that, TurtleBot3 Gazebo Simulator needs to be installed. Gazebo works best with a Nvidia GPU and I used a RTX 3070 in my setup. Please make sure the gpu drivers are up to date before installing Gazebo. The instructions can be found here:
+After that, TurtleBot3 Gazebo Simulator needs to be installed.   
+  
+Before installing Gazebo, copy the [model_editor_models](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/model_editor_models) **folder** with it's contents to the **Home** directory (~/model_editor_models/)  
+
+Gazebo works best with a Nvidia GPU and I used a RTX 3070 in my setup. Please make sure the gpu drivers are up to date before installing Gazebo. The instructions can be found here:
 https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation  
 **Note: Restart the terminal before installing Gazebo**
 
@@ -46,7 +52,6 @@ $ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 Use `ctrl + c` in the terminal to close Gazebo simulator.  
   
 After that, multiple files are required to be placed in correct folders to run the experiments correctly.
-* Copy the [model_editor_models](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/model_editor_models) **folder** to the **Home** directory (~/model_editor_models/).
 * Copy the **contents** of the [Maps](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Maps) **folder** to the **Home** directory (~/map_dynamic_obs.pgm, ~/map_dynamic_obs.yaml, ~/map_static_obs.pgm, ~/map_static_obs.yaml)
 * Copy the two **contents** of the [Worlds](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Worlds) **folder** inside the `~/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds` directory 
 * Copy the two **contents** of the [Launch](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Launch) **folder** inside the `~/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch` directory 
