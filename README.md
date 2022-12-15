@@ -52,7 +52,7 @@ After that, multiple files are required to be placed in correct folders to run t
 * Copy the two **contents** of the [Launch](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/Launch) **folder** inside the `~/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/launch` directory 
 * Lastly, copy the [navigation](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/navigation) folder to the `~/catkin_ws/src` directory (~/catkin_ws/src/navigation)
 
-Lastly, use the command `cd ~/catkin_ws && catkin_make` to install the Hybrid Local Planner package.
+Use the command `cd ~/catkin_ws && catkin_make` to compile the code.
 
 ## Running the Experiments
 To run the experiments, first we need to set the Local Planner in the [move_base.launch](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/move_base.launch) file. In my pc, the move_base.launch file is located at `/opt/ros/noetic/share/turtlebot3_navigation/launch/move_base.launch`.  
