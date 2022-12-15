@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>tc_gazebo_custom_plugins</name>
+  <version>0.0.0</version>
+  <description>The tc_gazebo_custom_plugins package</description>
+  <maintainer email="duckfrost@theconstructsim.com">user</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>roscpp</build_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>roscpp</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+  </export>
+</package>

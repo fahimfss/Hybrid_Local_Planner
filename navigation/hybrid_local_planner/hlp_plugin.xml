@@ -1,0 +1,7 @@
+<library path="lib/libhybrid_local_planner">
+        <class name ="hybrid_local_planner/HybridPlannerROS" type ="hybrid_local_planner::HybridPlannerROS" base_class_type= "nav_core::BaseLocalPlanner">
+                <description>
+                        A simple plugin for Local Planner.
+                </description>
+        </class>
+</library>
