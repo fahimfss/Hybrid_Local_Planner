@@ -114,10 +114,20 @@ After the Gazebo simulator fully starts, in another terminal, run the following 
   
 Two seconds before the obstacle starts moving (in this case, at 18-second mark after launching the Gazebo simulator), set the goal using the `2D Nav Goal` button. 
 
+## File Descriptions
+File Descriptions
+This section describes the files in [navigation/hybrid_local_planner/src](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/navigation/hybrid_local_planner/src). The corresponding header files are provided in [navigation/hybrid_local_planner/include](https://github.com/fahimfss/Hybrid_Local_Planner/tree/main/navigation/hybrid_local_planner/include).
 
+[hybrid_planner_ros.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/hybrid_planner_ros.cpp): This file acts as the primary set-up code for hybrid local planner. It calls the hybrid planner for calculating and providing the velocity the robot should follow, and other useful methods also. This file follows the implementation of [DWAPlannerROS](http://docs.ros.org/en/lunar/api/dwa_local_planner/html/dwa__planner__ros_8cpp_source.html).  
+  
+[hybrid_planner.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/hybrid_planner.cpp): This file contains the Hybrid Local Planner algorithm. The function `findBestPath` (line 593), takes input the current state of the robot and calculates and returns the best trajectory to follow and the corresponding velocities (both Translational and Rotational). Hybrid Local Planner works by first creating a graph in close proximity in front of the robot. Then, Dijkstra's algorithm is used to find the best path in this graph. Using the path, the allowed velocity is calculated based on closeness to obstacles. Based on the allowed velocity, a point in the path is selected as the goal point. After that, the best heading position for the goal point is selected. Now we have a goal point and a heading direction. The Hybrid A Star algorithm is used next to find a path from the current position and heading to reach the goal position and heading.  
+  
+[Node.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/Node.cpp): The Node class represents a node in the Dijkstra's algorithm.  
 
-
-
-
+[Helper.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/Helper.cpp): The Helper class contains useful static methods that Hybrid Planner uses throughout the implementation.   
+  
+[Edge.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/Edge.cpp): The Edge class represents an Edge in the Dijkstra's algorithm.   
+  
+[AStar_Node.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/AStar_Node.cpp): The AStar_Node class represents a node in the Hybrid A Star algorithm.  
 
 
