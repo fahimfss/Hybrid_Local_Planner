@@ -1,6 +1,19 @@
 # Hybrid Local Planner
 This is an implementation of ROS Local Planner using the Dijkstra's algorithm and the Hybrid A star algorithm
 
+## Experiments
+I have conducted extensive experiments to compare the performance of the Hybrid Local Planner with DWA Planner and TEB Planner. DWA Planner and TEB Planner are the two most commonly used local planners in ROS. All my experiments are recorded and the recording can be found here: https://drive.google.com/file/d/1Ai8MCKzv-_lAKkK3HQZqoNwSQ7tNDZRI  
+The contents of the video recording are as follows: 
+Experiment Name | Time in video |
+--- | --- |
+DWA Planner in static obstacle environment (Run 1 to 5) | 00:20 to 10:24 |
+Hybrid Planner in static obstacle environment (Run 1 to 5) | 10:24 to 15:50 |
+TEB Planner in static obstacle environment (Run 1 to 2) | 15:50 to 17:32 |
+DWA Planner in dynamic obstacle environment<br>Obstacle velocity: 0.4, 0.5, 0.6, and 0.7 m/s | 17:32 to 20:25|
+Hybrid Planner in dynamic obstacle environment<br>Obstacle velocity: 0.5, 0.6, 0.7, 0.8, and 0.9 m/s|20:25 to 22:37|
+TEB Planner in dynamic obstacle environment<br>Obstacle velocity: 0.3, 0.4 and 0.5 m/s | 22:37 to 24:16 |
+
+
 ## Installation
 Before starting, please make sure that the GPU drivers are up to date. It is recommended to use Nvidia GPUs with Gazebo. 
 
