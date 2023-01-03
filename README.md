@@ -1,5 +1,5 @@
 # Hybrid Local Planner
-This is an implementation of ROS Local Planner using the Dijkstra's algorithm and the Hybrid A star algorithm
+This is an implementation of ROS Local Planner using the Dijkstra's algorithm and the Hybrid A star algorithm. **Note: This project is still in experimental phase.**
 
 ## Experiments
 I have conducted extensive experiments to compare the performance of the Hybrid Local Planner with DWA Planner and TEB Planner. DWA Planner and TEB Planner are the two most commonly used local planners in ROS. All my experiments are recorded and the recording can be found here: https://drive.google.com/file/d/1Ai8MCKzv-_lAKkK3HQZqoNwSQ7tNDZRI  
