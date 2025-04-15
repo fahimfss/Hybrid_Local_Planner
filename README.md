@@ -133,3 +133,18 @@ This section describes the files in [navigation/hybrid_local_planner/src](https:
 [AStar_Node.cpp](https://github.com/fahimfss/Hybrid_Local_Planner/blob/main/navigation/hybrid_local_planner/src/AStar_Node.cpp): The AStar_Node class represents a node in the Hybrid A Star algorithm.  
 
 
+# Citation
+
+```
+@software{fahim_shahriar_2025_15225866, 
+  author       = {Fahim Shahriar},
+  title        = {Hybrid Local Planner: An implementation of ROS Local Planner using the Dijkstra's algorithm and the Hybrid A star algorithm.},  
+  publisher    = {Zenodo},  
+  version      = {v1.0.0},
+  month        = apr,
+  year         = 2025,
+  doi          = {10.5281/zenodo.15225866},  
+  url          = {https://github.com/fahimfss/Hybrid_Local_Planner},
+}
+```
+
